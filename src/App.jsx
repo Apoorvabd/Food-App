@@ -1,14 +1,13 @@
-import { useState } from 'react'
-
-import './App.css'
+import { createRoot } from 'react-dom/client'
+import Nav from './Nav.jsx'
+import './index.css'
+import Home from './Home.jsx'
+import Card from './Card.jsx'
+import UserContext from './context/UserContext.jsx'
 
 function App() {
   return (
-<>
-<div className="bg-blue-500 text-white p-4 rounded">
-  Hello Tailwind
-</div>
-</>  )
+ )
 }
 
 export default App
