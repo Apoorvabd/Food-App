@@ -8,8 +8,10 @@ export default function UserContext({ children }) {
   const [cat, setCat] = useState(food_items);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [cart,setCart]=useState(false);
+   const [text ,setText]=useState();
+   const [icon,setIcon]=useState();
 
-  const data = { input, setInput, cat, setCat, selectedCategory,cart,setCart, setSelectedCategory };
+  const data = { input, setInput, cat, setCat, selectedCategory,cart,setCart, setSelectedCategory,text,icon,setIcon,setText };
 
   return <dataContext.Provider value={data}>{children}</dataContext.Provider>;
 }

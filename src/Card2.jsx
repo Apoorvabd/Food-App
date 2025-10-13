@@ -1,15 +1,25 @@
 import image1 from './assets/image1.avif'
 import { FaTrashAlt } from "react-icons/fa";
+import { useContext } from "react";
+import { dataContext } from "./context/UserContext";
+import { useSelector } from 'react-redux';
+
+
 
 function Card2(){
+    const {text,icon,setText,setIcon}=useContext(dataContext);
+    const cart=useSelector(state=>state.cart);
+    console.log(cart);
+    
     return (
         <>
-        <div className="flex h-[90px] ml-12 w-[80%]  rounded-md shadow-xl  ">
-            <div className="bg- w-[70%] h-[75px] mt-2 flex p-3  gap-2 overflow-hidden">
-                <img src={image1} alt="  lyg" className='w-[110px] h-[75px] object-cover rounded-xl mt-0'/>
-                <div className=' w-[130px] h-[70px]'>
-                    <div>
-                        <p>Pancake</p>
+        {cart.map((e)=>(
+             <div key={e.id} className="flex h-[90px] ml-12 w-[80%]  rounded-md shadow-xl  ">
+            <div className="bg- w-[70%] h-[75px] mt-2 flex p-3  gap-4 overflow-hidden">
+                <img src={e.icon} alt="  lyg" className='w-[110px] h-[75px] object-cover rounded-xl mt-0'/>
+                <div className=' w-[190px] h-[70px]'>
+                    <div className='mb-2'>
+                        <p>{e.text}</p>
                     </div>
                     <div className=' ml-4  w-[79%] border-2 border-green-400 shadow-xl h-[35px] flex justify-center rounded-md'>
                         <button className='w-8 h-[30px] rounded-s-md bg-slate-50 text-3xl items-center flex justify-center'> - </button>
@@ -25,6 +35,8 @@ function Card2(){
 
             </div>
         </div>
+        ))}
+       
         </>
     )
 
