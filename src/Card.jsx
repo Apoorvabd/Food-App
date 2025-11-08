@@ -8,23 +8,34 @@ import { dataContext } from "./context/UserContext";
 
 
 function Card({ foodlist = [] }) {
-  const { text,setText,icon,setIcon } = useContext(dataContext);
+  const { num,setNum,icon,setIcon,added,setAdded } = useContext(dataContext);
   const dispatch=useDispatch();
  const handleadd = (item) => {
   if (!item) {
     console.error("handleadd called with undefined item!");
     return;
   }
+  
+  
+  if(added.includes(item.id)) return; 
+  setNum(num+1);
+
   dispatch(addItem({ 
     id: item.id, 
     text: item.food_name, 
-    icon: item.food_image 
+    icon: item.food_image ,
+    price:item.price,
+    qty:1,
+    total:item.price,
   }));
+  setAdded([...added,item.id]);
+  // console.log("hii",added[1]);
 };
 
   return (
     <div className="flex flex-wrap gap-7 justify-center mt-0 items-center">
       {foodlist.map((items,index) => (
+
         <div key={items.id} className="bg-white w-[200px] h-[260px] p-2 border-2 border-green-100 rounded-md">
           <img
             src={items.food_image}
@@ -40,7 +51,8 @@ function Card({ foodlist = [] }) {
               <p className="text-green-600 text-[13px] flex mt-1"><FaFish className="text-[18px]" /> non-veg</p>
             )}
           </div>
-          <button className="m-2 bg-green-300 border-2 rounded-2xl border-green-700 w-[90%]" onClick={()=>handleadd(items)}>Add to Cart</button>
+          <button className="m-2 bg-green-300 border-2 rounded-2xl border-green-700 w-[90%]" onClick={()=>handleadd(items)}
+            >Add to Cart</button>
         </div>
       ))}
     </div>

@@ -13,9 +13,9 @@ function Home() {
   }
 
   return (
-    <div>
-     <div className="h-[600px]  md:h-[120px] md:pl-10">
-         <div className="grid grid-cols-2 gap-12 md:flex md:w-[900px]   md:justify-center         w-[169px] h-[170px] md:h-[10px] mt-2 mb-3 md:gap-5   m-auto">
+    <div className="">
+     <div className="h-[600px]  md:h-[120px] md:pl-10 ">
+         <div className="grid grid-cols-2 gap-12 md:flex md:w-[900px] md:justify-center w-[169px] h-[170px] md:h-[10px] mt-2 mb-3 md:gap-5   m-auto">
         {Categories.map((item) => (
           <div
             key={item.id}
@@ -35,7 +35,7 @@ function Home() {
       </div>
      </div>
     <Card foodlist={cat} />
-    <Menu/>
+    
     
     </div>
   );

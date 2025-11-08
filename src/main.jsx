@@ -9,6 +9,7 @@ import './index.css'
 import Home from './Home.jsx'
 import Card from './Card.jsx'
 import UserContext from './context/UserContext.jsx'
+import Menu from './Menu.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
           <Nav />
           <Home />
           <Card />
+          <Menu/>
         </UserContext>
       </HashRouter>
     </Provider>

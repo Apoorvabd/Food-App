@@ -7,7 +7,7 @@ import { food_items } from "./foods";
 
 
 function Nav() {
-  const { input, setInput, setCat, selectedCategory ,cart,setCart} = useContext(dataContext);
+  const { input, setInput, setCat, selectedCategory ,cart,setCart,num,setNum} = useContext(dataContext);
 
   useEffect(() => {
     let filtered = food_items;
@@ -46,9 +46,9 @@ function Nav() {
           value={input}
         />
       </div>
-      <div className="text-2xl mr-6 flex items-center text-green-500 h-10 rounded-lg bg-white justify-center relative w-12 " onClick={()=>setCart(true)}>
+      <div className="text-2xl mr-9 flex items-center text-green-500 h-[40px] rounded-lg bg-white  relative w-12 p-0 " onClick={()=>setCart(true)}>
         <FaCartPlus />
-        <span className="absolute top-0 right-1 text-[15px] font-bold text-red-400">0</span>
+        <span className="absolute top-0 ml-1 left-5 text-[15px] font-extrabold text-red-400">{num}</span>
       </div>
     </div>
   );
